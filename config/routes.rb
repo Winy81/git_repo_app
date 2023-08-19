@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'repositories/search'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root 'repositories#search'
+  post 'repositories/search', to: 'repositories#search'
+
 end
