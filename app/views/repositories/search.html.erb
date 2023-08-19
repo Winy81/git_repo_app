@@ -1,12 +1,4 @@
-<h1>Github Repository Search</h1>
-
-<%= form_tag('/repositories/search', method: 'post') do %>
-  <%= label_tag 'search_term', 'Search Term:' %>
-  <%= text_field_tag 'search_term' %><br><br>
-  <%= submit_tag 'Search' %>
-<% end %>
-
-<hr>
+<%= render partial: 'repositories/form' %>
 
 <% if @repositories %>
   <h2>Search Results for "<%= @search_term %>"</h2>
