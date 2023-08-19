@@ -20,7 +20,7 @@ RSpec.describe RepositoriesController, type: :controller do
     end
 
     context 'without search results - main page' do
-      
+
       it 'returns a successful response with no items' do
 
         expect(Net::HTTP).to_not receive(:get)

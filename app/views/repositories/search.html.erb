@@ -1,2 +1,27 @@
-<h1>Repositories#search</h1>
-<p>Find me in app/views/repositories/search.html.erb</p>
+<h1>Github Repository Search</h1>
+
+<%= form_tag('/repositories/search', method: 'post') do %>
+  <%= label_tag 'search_term', 'Search Term:' %>
+  <%= text_field_tag 'search_term' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<hr>
+
+<% if @repositories %>
+  <h2>Search Results for "<%= @search_term %>"</h2>
+  <br>
+  <ul>
+    <% @repositories.each do |repo| %>
+      <li>
+        <strong><%= repo['name'] %></strong> - <%= repo['description'] %><br>
+        Stars: <%= repo['stargazers_count'] %><br>
+        Language: <%= repo['language'] %><br>
+        Link: <a href= <%= repo['html_url'] %>> Link for repo </a>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>No result or search</h2>
+<% end %>
