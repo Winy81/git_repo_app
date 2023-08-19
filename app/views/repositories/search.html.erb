@@ -1,0 +1,19 @@
+<%= render partial: 'repositories/form' %>
+
+<% if @repositories %>
+  <h2>Search Results for "<%= @search_term %>"</h2>
+  <br>
+  <ul>
+    <% @repositories.each do |repo| %>
+      <li>
+        <strong><%= repo['name'] %></strong> - <%= repo['description'] %><br>
+        Stars: <%= repo['stargazers_count'] %><br>
+        Language: <%= repo['language'] %><br>
+        Link: <a href= <%= repo['html_url'] %>> Link for repo </a>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>No result or search</h2>
+<% end %>
